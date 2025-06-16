@@ -1,0 +1,353 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Clean Reset - White Backgrounds with Dark Text */
+:root {
+  /* Primary Brand Colors - Neutral Instead of Purple */
+  --ifm-color-primary: #374151;
+  --ifm-color-primary-dark: #1f2937;
+  --ifm-color-primary-darker: #111827;
+  --ifm-color-primary-darkest: #030712;
+  --ifm-color-primary-light: #4b5563;
+  --ifm-color-primary-lighter: #6b7280;
+  --ifm-color-primary-lightest: #9ca3af;
+
+  /* Simple White Backgrounds */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface: #ffffff;
+  --ifm-background-surface-secondary: #ffffff;
+  
+  /* Text Colors */
+  --ifm-font-color-base: #101827;
+  --ifm-font-color-secondary: #101827;
+  --ifm-font-color-tertiary: #101827;
+  
+  /* Navigation - Exactly Same as Main Background */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow: none;
+  
+  /* Footer */
+  --ifm-footer-background-color: #ffffff;
+  --ifm-footer-color: #101827;
+  
+  /* Borders */
+  --ifm-border-color: #e5e7eb;
+  --ifm-border-color-secondary: #d1d5db;
+  
+  /* Interactive Elements - No Purple */
+  --ifm-button-color: #ffffff;
+  --ifm-button-background-color: #374151;
+  --ifm-button-border-color: #374151;
+  --ifm-link-color: #374151;
+  --ifm-link-hover-color: #1f2937;
+  
+  /* Menu/Sidebar */
+  --ifm-menu-color: #6b7280;
+  --ifm-menu-color-hover: #101827;
+  --ifm-menu-color-active: #101827;
+  --ifm-menu-color-background-hover: #f3f4f6;
+  --ifm-menu-color-background-active: #ffffff;
+  --ifm-menu-color-background-surface: #ffffff;
+  
+  /* Code */
+  --ifm-code-font-size: 90%;
+  --ifm-code-background: #f3f4f6;
+  --ifm-code-color: #101827;
+  
+  /* Status Colors */
+  --ifm-color-success: #059669;
+  --ifm-color-warning: #d97706;
+  --ifm-color-danger: #dc2626;
+  --ifm-color-info: #0284c7;
+  
+  /* Alerts */
+  --ifm-alert-background-color: #ffffff;
+  --ifm-alert-border-color: #e5e7eb;
+  
+  /* Tables */
+  --ifm-table-stripe-background: #ffffff;
+  --ifm-table-border-color: #e5e7eb;
+}
+
+/* Dark Theme - Keep Simple */
+[data-theme='dark'] {
+  /* Neutral Colors for Dark Theme */
+  --ifm-color-primary: #9ca3af;
+  --ifm-color-primary-dark: #6b7280;
+  --ifm-color-primary-darker: #4b5563;
+  --ifm-color-primary-darkest: #374151;
+  --ifm-color-primary-light: #d1d5db;
+  --ifm-color-primary-lighter: #e5e7eb;
+  --ifm-color-primary-lightest: #f3f4f6;
+
+  --ifm-background-color: #1f2937;
+  --ifm-background-surface: #1f2937;
+  --ifm-background-surface-secondary: #1f2937;
+  
+  --ifm-font-color-base: #f9fafb;
+  --ifm-font-color-secondary: #f9fafb;
+  --ifm-font-color-tertiary: #f9fafb;
+  
+  /* Navigation - Exactly Same as Main Background */
+  --ifm-navbar-background-color: #1f2937;
+  --ifm-navbar-shadow: none;
+  
+  --ifm-footer-background-color: #1f2937;
+  --ifm-footer-color: #f9fafb;
+  
+  --ifm-border-color: #374151;
+  --ifm-border-color-secondary: #4b5563;
+  
+  /* Interactive Elements - No Purple */
+  --ifm-button-color: #ffffff;
+  --ifm-button-background-color: #4b5563;
+  --ifm-button-border-color: #4b5563;
+  --ifm-link-color: #d1d5db;
+  --ifm-link-hover-color: #f3f4f6;
+  
+  --ifm-menu-color: #9ca3af;
+  --ifm-menu-color-hover: #f9fafb;
+  --ifm-menu-color-active: #f9fafb;
+  --ifm-menu-color-background-hover: #374151;
+  --ifm-menu-color-background-active: #1f2937;
+  --ifm-menu-color-background-surface: #1f2937;
+  
+  --ifm-code-background: #374151;
+  --ifm-code-color: #f9fafb;
+  
+  --ifm-color-success: #10b981;
+  --ifm-color-warning: #f59e0b;
+  --ifm-color-danger: #ef4444;
+  --ifm-color-info: #06b6d4;
+  
+  --ifm-alert-background-color: #1f2937;
+  --ifm-alert-border-color: #374151;
+  
+  --ifm-table-stripe-background: #1f2937;
+  --ifm-table-border-color: #374151;
+}
+
+/* Reset all custom styling */
+.menu {
+  background: var(--ifm-menu-color-background-surface) !important;
+}
+
+.menu__link {
+  color: var(--ifm-menu-color) !important;
+}
+
+.menu__link:hover {
+  color: var(--ifm-menu-color-hover) !important;
+  background-color: var(--ifm-menu-color-background-hover) !important;
+}
+
+.menu__link--active {
+  color: var(--ifm-menu-color-active) !important;
+  background-color: var(--ifm-menu-color-background-active) !important;
+}
+
+/* Make navigation arrows much smaller */
+.menu .menu__link--sublist-caret:after {
+  content: '' !important;
+  background: var(--ifm-menu-link-sublist-icon) 50% / 0.5rem 0.5rem !important;
+  filter: var(--ifm-menu-link-sublist-icon-filter) !important;
+  height: 1rem !important;
+  transform: rotate(180deg) !important;
+  width: 1rem !important;
+  transition: transform var(--ifm-transition-fast) linear !important;
+  display: inline-block !important;
+  margin-left: auto !important;
+  opacity: 0.8 !important;
+}
+
+.menu .menu__link--sublist-caret:hover:after {
+  opacity: 0.7 !important;
+}
+
+.menu .menu__list-item--collapsed .menu__link--sublist-caret:after {
+  transform: rotate(0deg) !important;
+}
+
+.menu .menu__list-item:not(.menu__list-item--collapsed) .menu__link--sublist-caret:after {
+  transform: rotate(90deg) !important;
+}
+
+/* Reduce heading sizes */
+h1 {
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1rem !important;
+}
+
+h2 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.8rem !important;
+  margin-top: 1.5rem !important;
+}
+
+h3 {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.6rem !important;
+  margin-top: 1.2rem !important;
+}
+
+h4 {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  margin-top: 1rem !important;
+}
+
+h5 {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.4rem !important;
+  margin-top: 0.8rem !important;
+}
+
+h6 {
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.3rem !important;
+  margin-top: 0.6rem !important;
+}
+
+/* Content section with light border */
+.theme-doc-markdown,
+.markdown {
+  border: 0.1px solid #f1f1f1 !important;
+  border-radius: 8px !important;
+  padding: 1.5rem !important;
+  margin: 0.5rem 0 !important;
+}
+
+[data-theme='dark'] .theme-doc-markdown,
+[data-theme='dark'] .markdown {
+  border-color: #3a3a3a !important;
+}
+
+/* Simple buttons */
+.button.button--primary {
+  background-color: var(--ifm-button-background-color);
+  border-color: var(--ifm-button-border-color);
+  color: var(--ifm-button-color);
+}
+
+.button.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.button.button--secondary {
+  background-color: var(--ifm-background-color);
+  border-color: var(--ifm-border-color);
+  color: var(--ifm-font-color-base);
+}
+
+.button.button--secondary:hover {
+  background-color: var(--ifm-background-surface);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+/* Force navbar to match main background exactly */
+.navbar {
+  background-color: var(--ifm-background-color) !important;
+  background: var(--ifm-background-color) !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+.navbar__inner {
+  background-color: var(--ifm-background-color) !important;
+  background: var(--ifm-background-color) !important;
+}
+
+.navbar__title {
+  color: var(--ifm-font-color-base) !important;
+  font-size: 0.9rem !important;
+}
+
+.navbar__item.navbar__link {
+  color: var(--ifm-font-color-base) !important;
+  font-size: 0.85rem !important;
+}
+
+.navbar__item.navbar__link:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+/* Simple footer */
+.footer {
+  background-color: var(--ifm-background-color) !important;
+  border-top: 1px solid var(--ifm-border-color);
+  color: var(--ifm-font-color-base) !important;
+}
+
+.footer__title {
+  color: var(--ifm-font-color-base) !important;
+}
+
+.footer__item {
+  color: var(--ifm-footer-color) !important;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+/* Simple cards */
+.card {
+  border: 1px solid var(--ifm-border-color);
+  background-color: var(--ifm-background-color);
+}
+
+/* Simple links */
+a {
+  color: var(--ifm-link-color);
+}
+
+a:hover {
+  color: var(--ifm-link-hover-color);
+  text-decoration: none;
+}
+
+/* Clean layout */
+body {
+  background-color: var(--ifm-background-color) !important;
+  color: var(--ifm-font-color-base) !important;
+}
+
+.main-wrapper {
+  background-color: var(--ifm-background-color) !important;
+}
+
+/* Reduce sidebar navigation font sizes */
+.menu__link {
+  font-size: 0.85rem !important;
+}
+
+.menu__list-item-collapsible .menu__link {
+  font-size: 0.85rem !important;
+}
+
+.menu__list .menu__list .menu__link {
+  font-size: 0.8rem !important;
+}
+
+.menu__list .menu__list .menu__list .menu__link {
+  font-size: 0.75rem !important;
+}
+
+/* Make button-clean.btn-menu smaller */
+.button-clean.btn-menu {
+  font-size: 0.75rem !important;
+  padding: 0.25rem 0.5rem !important;
+  min-height: auto !important;
+  line-height: 1.2 !important;
+}

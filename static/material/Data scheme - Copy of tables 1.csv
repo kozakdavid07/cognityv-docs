@@ -1,0 +1,69 @@
+,,partners,,,,,contacts,,,,,partners_to_products,,,,,transfer_accounts,,,,,asset_categories,,,,,asset_groups,,,,,assets,,,,,place_groups,,,,places,
+,,"Partner cégeket és annak adatait tároljuk le ebben a táblában. 
+- Alap adatok
+- Számlázási adatok 
+- Szállítási adatok",,,,,"Partner cégeket Munkatársainak a ""tárolására alkalmas tábla""",,,,,"A cikktörzs és a partner közötti relációs tábla, amiben meghatározzuk, hogy melyik terméket mennyiért adunk el az adott vevőnek (soronként)",,,,,"baknszámlák tárolására alkalmas tábla. 
+ha egy beszállítónak több pénznemben is van bankszámlája akkor azokat itt tároljuk le ",,,,,"ha felfelé szeretnénk bővíteni cikktörzs struktúráját, akkor az asset groupok fölé tudunk asset kategóriákat definiálni",,,,,"lényegében ez definiálja a ciggktörzset: 
+Típus leíró sorok: adott cikk paraméterei 
+
+a készletkezéls ezeket példányosítja",,,,,"ezt nem nagyon érdemes importálni, inkább az importált cikktörzs után a késlzeteket a felületen beállítani",,,,,épületek ,,,,,itt bármilyen dimenzióban lehet gondolkodni és bővíteni 
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Épületek leító paraméterei,,,,Raktározási helyes QR küddal jelölve,
+,,Alapadatok,,,,,Alapadatok,,,,,Egy reláció paraméterei,,,,,Partnerhez tartozó bankszámla adatai,,,,,Kategória leító tábla paraméterei,,,,,Cikktörzset leító paraméterei,,,,,Cikktörzsben definiált cikkek készlete - készletkezelés típusának megfelelően,,,,,name,épületek ,,,high_level_id,"RELÁCIÓS MEZŐ: ha vannak épületek definiálva, akkor azok alapján pontos egyezés kell"
+,,name,STRING,Partner neve,,,last_name,STRING,keresztnév,,x,partner_id,UUID,"RELÁCIÓS MEZŐ - pontos egyezés kell a partner nevével
+tartalom: mely partnernek adjuk a terméket",,x,partner_id,UUID or String,"RELÁCIÓS MEZŐ - pontos egyezés kell a partner nevével
+tartalom: mely partnernek a bankszámlaszáma",,,name,STRING,"a kategóriákat egy elnevezéssel meg lehet adni, ezekre rá tud majd csatlakozni az asset group ",,x,asset_category_id,UUID,"RELÁCIÓS MEZŐ: ha vannak kategóriák definiálva, akkor azok alapján pontos egyezés",,,id,UUID,,,,,,,,mid_level,sor / oszlop
+,,is_customer,BOOLEAN,ha vevő -> TRUE,,,first_name,STRING,vezetéknév,,x,asset_group_id,UUID,"RELÁCIÓS MEZŐ - pontos egyezés kell a ""cikk"" = asset group (magyarul termék csoport) nevével
+tartalom: mely partnernél dolgozik",,,account_holder_name,String,név,,,,,,,,name,STRING,termék neve,,,name,STRING,,,,,,,,low_level,polc
+,,is_reseller,BOOLEAN,ha viszonteladó -> TRUE,,x,partner_id,UUID,"RELÁCIÓS MEZŐ - pontos egyezés kell a partner nevével
+tartalom: mely partnernél dolgozik",,,unit_price_below_min_order,NUMERIC,szerződés szerinti  alatti ár,,,currency,String,pénznem,,,,,,,,article_number,STRING,cikkszám - vizualizációra,,,parent_asset_id,UUID,,,,,,,,,
+,,is_supplier,BOOLEAN,ha beszállító -> TRUE,,,phone,STRING,,,,minimum_order_quantity,NUMERIC,minimum rendlési mennyiség,,,account_number,String,bankszámlaszám,,,,,,,,description,STRING,termék leírás ( később webshopba),,,type,STRING,,,,,,,,itt bármilyen dimenzióban lehet gondolkodni és bővíteni ,
+,,is_competitor,BOOLEAN,ha kompetitor -> TRUE,,,email,STRING,,,,unit_price,NUMERIC,ár ,,,account_type,String,business / personal,,,,,,,,is_trade_ready,BOOLEAN,eladjuk a terméket -> TRUE,,,category,STRING,,,,,,,,,
+,,notes,STRING,szabad szöveges note a partnerhez,,,,,,,,vat_type,STRING,áfa,,,bank_name,String,,,,,,,,,is_production_ready,BOOLEAN,gyártjuk a terméket -> TRUE,,,asset_handling_type,STRING,,,,,,,,,
+,,email,STRING,elsődleges cég email (kontakttól függetlenül),,,,,,,,,,,,,bank_address,String,,,,,,,,,is_packaging_material,BOOLEAN,csomagolóanyag a termék -> TRUE,,,barcode,STRING,,,,,,,,,
+,,website,STRING,,,,,,,,,due date,,meddig érvényes a megadott ár,,,address_post_code,String,,,,,,,,,unit,STRING,mértékegység,,,batch_number,STRING,,,,,,,,,
+,,phone,STRING,elsődleges cég telefonszám (kontakttól függetlenül),,,,,,,,,,,,,address_country_code,String,,,,,,,,,unit_price,NUMERIC,eladási egységár,,,account_number,STRING,,,,,,,,,
+,,country_code,STRING,elsődleges ország (cím része),,,,,,,,,,,,,swift,String,,,,,,,,,cost_price,NUMERIC,bekerülési egységár,,,accounting_id,STRING,,,,,,,,,
+,,postal_code,STRING,elsődleges zíp (cím része),,,,,,,,,,,,,,,,,,,,,,,currency,STRING,készletezés pénzbeli érétke,,,customs_tariff_number,STRING,,,,,,,,,
+,,city,STRING,elsődleges város (cím része),,,,,,,,,,,,,,,,,,,,,,,active,BOOLEAN,,,,quantity,NUMERIC,,,,,,,,,
+,,additional_address_detail,STRING,elsődleges utca házsz. (cím része),,,,,,,,,,,,,,,,,,,,,,,type,STRING,(fizikai termék (készlet)/ tárgyi eszköz / immateriális / ...) ,,,unit,STRING,,,,notes,,,,Actions,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,asset_handling_type,STRING,"készleteknél releváns
+egy kódos tömeges készlet (pl: egy láda csavar)
+több kódos tömeges készlet (pl: epoxy gyanta - azonos sarzs több hordóban tárolva)
+unique (pl: számítógép) ",,,,,,,,manager_id,,,,id,
+,,Számlázási adatok,,,,,,,,,,,,,,,,,,,,,,,,,net_weight,NUMERIC,,,,,,,,,department_id,,,,barcode,
+,,entity,STRING,hazai / magánszemély / egyéb,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,team_id,,,,,
+,,registry_number,STRING,cégjegyzékszám,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,local_tax_number,STRING,adószám,,,,,,,,,,,,,,,,,,,,,,,Cikktörzset számlázás spec -  leító paraméterei,,,,,unified_net_total,NUMERIC,,,,Actions,,,,,
+,,eu_tax_number,STRING,eu adószám,,,,,,,,,,,,,,,,,,,,,,,kf_code,JSON,,,,unified_unit_price,NUMERIC,,,,id,,,,notes,
+,,target_currency,STRING,amilyen currency-ben szeretnéd a számlát kiállítani a partner számára,,,,,,,,,,,,,,,,,,,,,,,csk_code,JSON,csomagolás kód,,,place_id,UUID,,,,,,,,type,
+,,target_exchange_rate,NUMERIC,"statikus érték, ahol az aktuális árfolyamot írjuk be a saját currency és partner target currency között
+saját currency: amiben a készletek értékét vezetni akarjuk ",,,,,,,,,,,,,,,,,,,,,,,kt_code,JSON,,,,,,,,,,,,,manager_id,
+,,days_until_payment_due,NUMERIC,számlázáasi adat: ehhez a partnerhez teljesítéstől számított fizetési határidő,,,,,,,,,,,,,,,,,,,,,,,rev_account_number,STRING,bevételi főkönyvi szám,,,,,,,,,,,,department_id,
+,,billing_email,STRING,ha különbözik a sima email-tól: pl: finance@....,,,,,,,,,,,,,,,,,,,,,,,cost_account_number,STRING,kiadási főkönyvi szám,,,locked,BOOLEAN,,,,,,,,team_id,
+,,billing_phone,STRING,ha különbözik a sima phone-tól,,,,,,,,,,,,,,,,,,,,,,,customs_tariff_number,STRING,,,,details,JSON,,,,,,,,,
+,,separate_billing_address,BOOLEAN,ha különbözik az elsődleges cím adatoktól = TRUE,,,,,,,,,,,,,,,,,,,,,,,billing_scheme,STRING,,,,notes,STRING,,,,,,,,,
+,,billing_country_code,STRING,számlázás ország (cím része),,,,,,,,,,,,,,,,,,,,,,,adr_info,JSON,,,,active,BOOLEAN,,,,,,,,,
+,,billing_postal_code,STRING,számlázás  zíp (cím része),,,,,,,,,,,,,,,,,,,,,,,hazard_statements,TEXT[],,,,role,STRING,,,,,,,,,
+,,billing_city,STRING,számlázás  város (cím része),,,,,,,,,,,,,,,,,,,,,,,precautionary_statements,TEXT[],,,,,,,,,,,,,,
+,,billing_additional_address_detail,STRING,számlázás  utca házsz. (cím része),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,Cikktörzset számlázás spec -  leító paraméterei,,,,,contact_id,UUID,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,minimum_order_quantity,NUMERIC,,,,,,,,,,,,,,
+,,"generált dokumentumok beállításai partnerenként (számla, ajánlat, szállítólevél, etc..)",,,,,,,,,,,,,,,,,,,,,,,,,minimum_in_stock_quantity,NUMERIC,,,,warranty_date,DATE,,,,,,,,,
+,,quote_duration,NUMERIC,ennek a partnernek egy kiadott ajánlat meddig érvényes (a generálás időpontjától?),,,,,,,,,,,,,,,,,,,,,,,maximum_in_stock_quantity,NUMERIC,,,,last_maintenance_date,DATE,,,,,,,,,
+,,pay_method,STRING,számlázási adat - utalás vagy kp számlát kap?,,,,,,,,,,,,,,,,,,,,,,,,,,,,maintenance_schedule_days,NUMERIC,,,,,,,,,
+,,language,STRING,milyen nyelven kapja a dokumentumokat,,,,,,,,,,,,,,,,,,,,,,,,,,,,acquisition_date,DATE,,,,,,,,,
+,,show_imperial_units,BOOLEAN,számlán milyen mértékegységek szerepeljenek,,,,,,,,,,,,,,,,,,,,,,,,,,,,origin_partner_id,UUID,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,lifespan_years,NUMERIC,,,,,,,,,
+,,Szállítási adatok,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,residual_value_percentage,NUMERIC,,,,,,,,,
+,,delivery_terms,STRING,select-ből kell majd választani,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,delivery_notes,STRING,sablon szerű szabad szöveges utasítás szállítmányozáshoz - szállítólevlére ,,,,,,,,,,,,,,,,,,,,,,,,,,,,local_id,STRING,,,,,,,,,
+,,separate_shipping_address,BOOLEAN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,shipping_country_code,STRING,szállítás ország (cím része),,,,,,,,,,,,,,,,,,,,,,,,,,,,global_user_id,UUID,,,,,,,,,
+,,shipping_postal_code,STRING,szállítás  zíp (cím része),,,,,,,,,,,,,,,,,,,,,,,,,,,,place_group_id,UUID,,,,,,,,,
+,,shipping_city,STRING,szállítás  város (cím része),,,,,,,,,,,,,,,,,,,,,,,,,,,,access_policies,JSON,,,,,,,,,
+,,shipping_additional_address_detail,STRING,szállítás  utca házsz. (cím része),,,,,,,,,,,,,,,,,,,,,,,,,,,,src,JSON,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ws_id,UUID,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,manager_id,UUID,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,department_id,UUID,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,team_id,UUID,,,,,,,,,

@@ -1,0 +1,18 @@
+# This file is used to define blog authors, which can be used in blog posts.
+# See https://docusaurus.io/docs/blog#authors
+
+davidkozak:
+  name: David Kozak
+  title: Product Manager
+  url: https://linkedin.com/in/kozakdavid07/
+  image_url: 'https://github.com/davidkozak.png'
+  page: true
+  socials:
+    linkedin: davidkozak
+
+maintainer:
+  name: Platform Team
+  title: Platform Maintainers
+  url: https://github.com/your-org
+  image_url: https://github.com/your-org.png
+  email: platform@your-org.com
