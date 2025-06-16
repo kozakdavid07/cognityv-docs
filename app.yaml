@@ -1,0 +1,40 @@
+runtime: nodejs18
+
+# Serve static files from the build directory
+handlers:
+  # Handle static assets
+  - url: /assets
+    static_dir: build/assets
+    secure: always
+
+  # Handle images and other static files
+  - url: /img
+    static_dir: build/img
+    secure: always
+
+  # Handle CSS files
+  - url: /.*\.css
+    static_files: build/\1.css
+    upload: build/.*\.css
+    secure: always
+
+  # Handle JS files
+  - url: /.*\.js
+    static_files: build/\1.js
+    upload: build/.*\.js
+    secure: always
+
+  # Handle all other routes (SPA routing)
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
+    secure: always
+
+# Environment variables
+env_variables:
+  NODE_ENV: production
+
+# Automatic scaling
+automatic_scaling:
+  min_instances: 0
+  max_instances: 10 
