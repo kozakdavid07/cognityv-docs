@@ -102,11 +102,11 @@ const config: Config = {
           items: [
             {
               label: 'Platform',
-              to: '/docs/platform',
+              to: '/docs/Platform',
             },
             {
               label: 'Solutions',
-              to: '/docs/solutions',
+              to: '/docs/Solutions',
             },
           ],
         },

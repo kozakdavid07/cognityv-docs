@@ -40,7 +40,6 @@ The Asset Manager empowers users to:
 - [Maintain Accurate Inventory](./maintain-accurate-inventory.md) - Keep inventory records precise through automated scanning
 - [Execute Common Operations](./execute-common-operations.md) - Streamline routine tasks with pre-configured workflows
 - [Ensure Asset Accountability](./ensure-asset-accountability.md) - Maintain complete audit trails and responsibility chains
-- [Reduce Errors](./reduce-errors.md) - Eliminate manual data entry mistakes through automation
 
 ## Location Management Operations
 
