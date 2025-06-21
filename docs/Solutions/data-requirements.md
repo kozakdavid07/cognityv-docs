@@ -12,6 +12,20 @@ Understanding the data requirements is fundamental to implementing Cognityv effe
 
 ## Master Data Requirements
 
+
+| Entity               | Description                                      |
+|----------------------|--------------------------------------------------|
+| `partners`           | Companies, clients, or suppliers                 |
+| `transactions`       | Sales, purchases, transfers                      |
+| `transaction_records`| Line items associated with a transaction         |
+| `documents`          | Invoices, contracts, delivery notes, etc.       |
+| `transfer_records`   | Payment or bank transfer metadata                |
+| `transfer_accounts`  | Bank info linked to partners                     |
+| `asset_groups`       | Product and service categories                   |
+| `assets`             | Stock units tracked with QR and batch IDs        |
+
+---
+
 ### Partners and Contacts
 Essential information for managing business relationships and communications.
 

@@ -111,7 +111,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Your Organization. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Cognityv Cloud.`,
     },
     prism: {
       theme: prismThemes.github,
